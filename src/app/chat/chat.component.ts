@@ -19,7 +19,7 @@ export class ChatComponent implements OnInit {
   }
   newMessage(message) {
     
-	  this.messagesCollection.add(message.this.ms);
+	  this.messagesCollection.add(message);
   }
   getChatData() {
 	  this.messagesCollection = this.afs.collection<any>('chat_messages');
