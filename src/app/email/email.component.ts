@@ -1,17 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
-import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
-// material design
-import {ErrorStateMatcher} from '@angular/material/core';
+import {FormControl, FormGroupDirective, NgForm} from '@angular/forms';
 
 
-/** Error when invalid control is dirty, touched, or submitted. */
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
 @Component({
   selector: 'app-email',
   templateUrl: './email.component.html',
@@ -26,16 +17,15 @@ export class EmailComponent implements OnInit {
   ngOnInit() {
   }
 
+  // get value input
   onSubmit(formData) {
     if (formData.valid) {
-      console.log(formData.value);
+      console.log(formData);
       this.authService.login(
         formData.value.email,
         formData.value.password
       );
     }
   }
-  
-
 }
 

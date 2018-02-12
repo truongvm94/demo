@@ -8,7 +8,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import {MatInputModule} from '@angular/material/input';
 import { AppComponent } from './app.component';
 import { AuthService } from './auth.service';
-import { BooksvService } from './booksv.service'
+import { BooksvService } from './booksv.service';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
@@ -19,15 +19,17 @@ import { EmailComponent } from './email/email.component';
 import { BookComponent } from './book/book.component';
 import { BookListCompnent } from './book/book-list/book-list.component';
 import { ChatComponent } from './chat/chat.component';
+import { BookAddComponent } from './book/book-add/book-add.component';
+import { HeaderComponent } from './header/header.component';
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBC093EqkiuDc4X6GbbZ3Bwtz5JpRBYc0A",
-  authDomain: "finalangular-45642.firebaseapp.com",
-  databaseURL: "https://finalangular-45642.firebaseio.com",
-  projectId: "finalangular-45642",
-  storageBucket: "",
-  messagingSenderId: "34616618954"
+  apiKey: 'AIzaSyBC093EqkiuDc4X6GbbZ3Bwtz5JpRBYc0A',
+  authDomain: 'finalangular-45642.firebaseapp.com',
+  databaseURL: 'https://finalangular-45642.firebaseio.com',
+  projectId: 'finalangular-45642',
+  storageBucket: '',
+  messagingSenderId: '34616618954'
 };
 
 
@@ -41,8 +43,9 @@ const firebaseConfig = {
     EmailComponent,
     BookComponent,
     BookListCompnent,
-    ChatComponent
-  
+    ChatComponent,
+    BookAddComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,6 @@ const firebaseConfig = {
     BrowserAnimationsModule,
     MatInputModule,
     HttpClientModule
-    
   ],
   providers: [ AuthService, BooksvService ],
   bootstrap: [AppComponent]

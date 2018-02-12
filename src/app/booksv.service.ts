@@ -5,60 +5,59 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { HttpClient } from '@angular/common/http/';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Books } from './book/book.model';
+// import { Book } from './book/book';
 
 @Injectable()
 export class BooksvService {
-  // booksCollection: AngularFirestoreCollection<Books> ;
-  // books: Observable<Books[]> ;
+
   stringSearch: string;
-  dbPath: string = "https://www.googleapis.com/books/v1/volumes?q=";
-  // show book
-  booktitle : string;
+  dbPath = 'https://www.googleapis.com/books/v1/volumes?q=';
+
+  booktitle: string;
   bookcountpage: number;
   // custormize book
-  name : string = "";
-  desc : string = "";
+  name = '';
+  desc = '';
 
   bookcollection: AngularFirestoreCollection<any> = this.afs.collection('demobook');
   bookdobs = this.bookcollection.valueChanges();
-  
 
-  constructor(private http : HttpClient, private afs : AngularFirestore) {}
 
-  getBook() : Observable<any>{
-    return this.http.get("https://www.googleapis.com/books/v1/volumes?q=" + this.stringSearch);
+  constructor(private http: HttpClient, private afs: AngularFirestore) { }
+  getBook(): Observable<any> {
+    return this.http.get('https://www.googleapis.com/books/v1/volumes?q=' + this.stringSearch);
   }
 
-  add(b){
-    console.log(b,"my bbbb")
+  add(b) {
+    console.log(b, 'my book');
     this.bookcollection.add({
       name: b.volumeInfo.title,
-      pagecount : b.volumeInfo.pageCount,
+      pagecount: b.volumeInfo.pageCount,
       thumb: b.volumeInfo.imageLinks.smallThumbnail,
       desc: b.volumeInfo.description
     }).then((docRef) => {
       this.bookcollection.doc(docRef.id).update({
         bookid: docRef.id
-      })
-    }).catch((err) => {  
+      });
+    }).catch((err) => {
       console.log(err);
-    })
-      
-   
+    });
+
+
   }
 
   update(bid) {
     this.bookcollection.doc(bid.bookid).update({
-      name : this.name,
-      desc : this.desc
+      name: this.name,
+      desc: this.desc
     }).then(() => {
-      console.log("updated");
-    })
+      console.log('updated');
+    });
   }
 
-  delete(bid){
+  delete(bid) {
     this.bookcollection.doc(bid.bookid).delete().then(() => {
-      console.log("deleted");
-    })
-  } 
+      console.log('deleted');
+    });
+  }
 }

@@ -11,7 +11,7 @@
 <h1>Real Time Chat</h1>
 
 <div *ngFor="let message of messages | async">
-	{{message.$value}}
+	{{message.mess}}
 </div>
 <input type="text" #message placeholder="Your message..">
 
