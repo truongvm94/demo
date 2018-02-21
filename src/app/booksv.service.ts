@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
-
 import { HttpClient } from '@angular/common/http/';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import { Books } from './book/book.model';
+// import { Books } from './book/book.model';
 // import { Book } from './book/book';
 
 @Injectable()

@@ -5,7 +5,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
-import {MatInputModule} from '@angular/material/input';
 import { AppComponent } from './app.component';
 import { AuthService } from './auth.service';
 import { BooksvService } from './booksv.service';
@@ -21,7 +20,6 @@ import { BookListCompnent } from './book/book-list/book-list.component';
 import { ChatComponent } from './chat/chat.component';
 import { BookAddComponent } from './book/book-add/book-add.component';
 import { HeaderComponent } from './header/header.component';
-
 
 const firebaseConfig = {
   apiKey: 'AIzaSyBC093EqkiuDc4X6GbbZ3Bwtz5JpRBYc0A',
@@ -55,10 +53,9 @@ const firebaseConfig = {
     AngularFirestoreModule.enablePersistence(),
     AngularFireAuthModule,
     BrowserAnimationsModule,
-    MatInputModule,
     HttpClientModule
   ],
-  providers: [ AuthService, BooksvService ],
+  providers: [ AuthService, BooksvService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
